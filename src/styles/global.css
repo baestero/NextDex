@@ -18,10 +18,3 @@ p {
   color: #cdcddb;
   font-size: 0.85rem;
 }
-
-.appContainer {
-  max-width: 800px;
-  background: #fff;
-  margin: 0 auto;
-  padding: 40px;
-}

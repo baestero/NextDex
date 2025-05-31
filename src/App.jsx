@@ -1,15 +1,18 @@
 import React from "react";
 import "./styles/global.css";
+import styles from "/App.module.css";
 import Header from "./components/Header/Header";
 import Search from "./components/Search/Search";
 import Pokemon from "./components/Pokemon/Pokemon";
+import Filtro from "./components/Filtro/Filtro";
+import Input from "./components/Input/Input";
 
 const App = () => {
   const [pokemon, setPokemon] = React.useState(null);
-  const [searchValue, setSearchValue] = React.useState("");
+  const [searchValue, setSearchValue] = React.useState(null);
 
   const buscarPokemon = () => {
-    if (searchValue !== "") {
+    if (searchValue !== null) {
       fetch(`https://pokeapi.co/api/v2/pokemon/${searchValue.toLowerCase()}`)
         .then((response) => response.json())
         .then((json) => setPokemon(json))
@@ -20,13 +23,17 @@ const App = () => {
   };
 
   return (
-    <div className="appContainer">
+    <div className={styles.appContainer}>
       <Header />
-      <Search
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
-        buscar={buscarPokemon}
-      />
+      <section className={styles.searchSection}>
+        <Search
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+          buscar={buscarPokemon}
+        />
+        <Input searchValue={searchValue} setSearchValue={setSearchValue} />
+        <Filtro />
+      </section>
       <Pokemon pokemon={pokemon} />
     </div>
   );

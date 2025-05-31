@@ -1,8 +1,3 @@
-.searchContainer {
-  display: flex;
-  align-items: center;
-}
-
 .lupaContainer {
   padding: 15.3px;
   padding-left: 20px;
@@ -13,31 +8,4 @@
 
 .lupa {
   width: 12px;
-}
-
-.searchInput {
-  background: #f6f7fa;
-  border: none;
-  width: 180px;
-  height: 50px;
-  border-radius: 0px 8px 8px 0px;
-  color: #cdcddb;
-  font-size: 0.85rem;
-}
-
-.searchInput:focus {
-  outline: none;
-  box-shadow: none;
-  border: none;
-}
-
-.searchInput::placeholder {
-  color: #cdcddb;
-  font-size: 0.85rem;
-}
-
-.filterContainer img {
-  width: 45px;
-  margin-left: 10px;
-  cursor: pointer;
 }
