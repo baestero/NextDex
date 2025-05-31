@@ -5,7 +5,7 @@ const Search = ({ buscar, searchValue }) => {
   return (
     <>
       <div onClick={() => buscar(searchValue)} className={styles.lupaContainer}>
-        <img className={styles.lupa} src="public\icons\lupa.svg" alt="" />
+        <img className={styles.lupa} src="/icons/lupa.svg" alt="" />
       </div>
     </>
   );
