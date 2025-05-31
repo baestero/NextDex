@@ -9,10 +9,10 @@ import Input from "./components/Input/Input";
 
 const App = () => {
   const [pokemon, setPokemon] = React.useState(null);
-  const [searchValue, setSearchValue] = React.useState(null);
+  const [searchValue, setSearchValue] = React.useState("");
 
   const buscarPokemon = () => {
-    if (searchValue !== null) {
+    if (searchValue !== "") {
       fetch(`https://pokeapi.co/api/v2/pokemon/${searchValue.toLowerCase()}`)
         .then((response) => response.json())
         .then((json) => setPokemon(json))
