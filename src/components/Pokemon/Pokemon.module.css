@@ -1,0 +1,25 @@
+.pokemonCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  background-color: #f6f7fa;
+  height: 250px;
+  width: 150px;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.pokemonContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pokemonContainer p {
+  color: #5e5f7d;
+}
+
+.pBusca {
+  margin-bottom: 20px;
+}
