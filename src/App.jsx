@@ -9,6 +9,7 @@ import Input from "./components/Input/Input";
 
 const App = () => {
   const [pokemon, setPokemon] = React.useState(null);
+  const [corPokemon, setCorpokemon] = React.useState(null);
   const [searchValue, setSearchValue] = React.useState("");
 
   const buscarPokemon = () => {
@@ -17,6 +18,14 @@ const App = () => {
         .then((response) => response.json())
         .then((json) => setPokemon(json))
         .catch((err) => alert("Pokemon não encontrado", err));
+
+      fetch(
+        `https://pokeapi.co/api/v2/pokemon-species/${searchValue.toLowerCase()}`
+      )
+        .then((res) => res.json())
+        .then((corJson) => {
+          setCorpokemon(corJson);
+        });
     } else {
       alert("digite  nome ou id do pokemon");
     }
@@ -34,7 +43,9 @@ const App = () => {
         <Input searchValue={searchValue} setSearchValue={setSearchValue} />
         <Filtro />
       </section>
-      <Pokemon pokemon={pokemon} />
+      {pokemon && corPokemon && (
+        <Pokemon pokemon={pokemon} corPokemon={corPokemon} />
+      )}
     </div>
   );
 };

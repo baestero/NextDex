@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 10px;
   background-color: #f6f7fa;
   height: 250px;
   width: 150px;
@@ -12,8 +11,16 @@
 
 .pokemonContainer {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 15px;
+}
+
+.pokemonContainer img {
+  margin-bottom: 15px;
+}
+.pokemonContainer h3 {
+  margin-bottom: 5px;
 }
 
 .pokemonContainer p {

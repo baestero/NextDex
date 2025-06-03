@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <div className={styles.headerContainer}>
       <h1>NextDex</h1>
-      <p>Faça sua pesquisa por nome</p>
+      <p>Faça sua pesquisa por nome ou ID</p>
     </div>
   );
 };
