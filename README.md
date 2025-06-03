@@ -1,2 +1,3 @@
 # NextDex
-Projeto React de consumindo a PokeAPI
+Projeto React consumindo a PokeAPI
+Deploy: nextdex-six.vercel.app
