@@ -30,11 +30,7 @@ const Pokemon = ({ pokemon, corPokemon }) => {
             alt={pokemon.name}
           />
           <h3>{primeiraMaiuscula(pokemon.name)}</h3>
-          <p>
-            {pokemon.types
-              .map((tipoObj) => primeiraMaiuscula(tipoObj.type.name))
-              .join(" / ")}
-          </p>
+          <p>{pokemon.types[0].type.name}</p>
         </div>
       </div>
     </>

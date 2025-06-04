@@ -25,18 +25,8 @@ const HomePokemons = ({ homePokemon }) => {
         {homePokemon.map((pokemon) => {
           const backgroundColor = pokemonColors[pokemon.color] || "#FFF";
           return (
-            <div
-              key={pokemon.name}
-              style={{ backgroundColor }}
-              className={styles.pokemonCard}
-            >
-              <img src={pokemon.image} alt="" />
+            <div key={pokemon.name} className={styles.pokemonCard}>
               <h3>{primeiraMaiuscula(pokemon.name)}</h3>
-              <p>
-                {pokemon.types
-                  .map((tipo) => primeiraMaiuscula(tipo))
-                  .join(" / ")}
-              </p>
             </div>
           );
         })}

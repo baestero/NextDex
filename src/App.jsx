@@ -17,36 +17,7 @@ const App = () => {
   React.useEffect(() => {
     fetch("https://pokeapi.co/api/v2/pokemon?limit=9")
       .then((response) => response.json())
-      .then((data) => {
-        const promessas = data.results.map((pokemon) => {
-          return fetch(pokemon.url)
-            .then((res) => res.json())
-            .then((detalhes) => {
-              const tipos = detalhes.types.map((t) => t.type.name);
-              const imagem =
-                detalhes.sprites.other["official-artwork"].front_default;
-              const nome = detalhes.name;
-
-              return fetch(`https://pokeapi.co/api/v2/pokemon-species/${nome}`)
-                .then((res) => res.json())
-                .then((species) => {
-                  const cor = species.color.name;
-
-                  return {
-                    name: nome,
-                    image: imagem,
-                    types: tipos,
-                    color: cor,
-                  };
-                });
-            });
-        });
-
-        Promise.all(promessas).then((pokemonsCompletos) => {
-          setHomePokemon(pokemonsCompletos);
-        });
-      })
-      .catch((err) => alert("Erro ao buscar os Pokémons", err));
+      .then((data) => data.json());
   }, []);
 
   const buscarPokemon = () => {
