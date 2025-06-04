@@ -32,9 +32,6 @@ const Pokemon = ({ pokemon, corPokemon }) => {
           <h3>{primeiraMaiuscula(pokemon.name)}</h3>
           <p>{primeiraMaiuscula(pokemon.types[0].type.name)}</p>
         </div>
-        <div style={{ backgroundColor }} className={styles.pokemonCard}></div>
-        <div style={{ backgroundColor }} className={styles.pokemonCard}></div>
-        <div style={{ backgroundColor }} className={styles.pokemonCard}></div>
       </div>
     </>
   );
