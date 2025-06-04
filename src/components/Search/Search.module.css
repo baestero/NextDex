@@ -1,8 +1,8 @@
 .lupaContainer {
   padding: 19px;
-  padding-left: 20px;
+  padding-left: 10px;
   background: #f6f7fa;
-  border-radius: 8px 0px 0px 8px;
+  border-radius: 0px 8px 8px 0px;
   cursor: pointer;
 }
 

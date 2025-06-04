@@ -72,12 +72,12 @@ const App = () => {
     <div className={styles.appContainer}>
       <Header />
       <section className={styles.searchSection}>
+        <Input searchValue={searchValue} setSearchValue={setSearchValue} />
         <Search
           searchValue={searchValue}
           setSearchValue={setSearchValue}
           buscar={buscarPokemon}
         />
-        <Input searchValue={searchValue} setSearchValue={setSearchValue} />
         <Filtro />
       </section>
       {pokemon && corPokemon && (
