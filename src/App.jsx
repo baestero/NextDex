@@ -6,34 +6,70 @@ import Search from "./components/Search/Search";
 import Pokemon from "./components/Pokemon/Pokemon";
 import Filtro from "./components/Filtro/Filtro";
 import Input from "./components/Input/Input";
-import HomePokemons from "./components/HomePokemons/HomePokemons";
+import HomePokemon from "./components/HomePokemon/HomePokemon";
 
 const App = () => {
   const [pokemon, setPokemon] = React.useState(null);
-  const [homePokemon, setHomePokemon] = React.useState([]);
-  const [corPokemon, setCorpokemon] = React.useState(null);
   const [searchValue, setSearchValue] = React.useState("");
+  const [homePokemon, setHomePokemon] = React.useState("");
 
   React.useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=9")
-      .then((response) => response.json())
-      .then((data) => data.json());
+    (async () => {
+      const response = await fetch(
+        "https://pokeapi.co/api/v2/pokemon?limit=20"
+      );
+      const data = await response.json();
+
+      const detalhes = await Promise.all(
+        data.results.map(async (pokemon) => {
+          const geral = await fetch(pokemon.url);
+          const dataGeral = await geral.json();
+
+          const species = await fetch(
+            `https://pokeapi.co/api/v2/pokemon-species/${dataGeral.name}`
+          );
+          const dataSpecies = await species.json();
+
+          return {
+            name: dataGeral.name,
+            image: dataGeral.sprites.other["official-artwork"].front_default,
+            type: dataGeral.types
+              .map((t) => primeiraMaiuscula(t.type.name))
+              .join(" / "),
+            color: dataSpecies.color.name,
+          };
+        })
+      );
+      setHomePokemon(detalhes);
+    })();
   }, []);
 
-  const buscarPokemon = () => {
-    if (searchValue !== "") {
-      fetch(`https://pokeapi.co/api/v2/pokemon/${searchValue.toLowerCase()}`)
-        .then((response) => response.json())
-        .then((json) => setPokemon(json))
-        .catch((err) => alert("Pokemon não encontrado", err));
+  function primeiraMaiuscula(texto) {
+    return texto.charAt(0).toUpperCase() + texto.slice(1);
+  }
 
-      fetch(
-        `https://pokeapi.co/api/v2/pokemon-species/${searchValue.toLowerCase()}`
-      )
-        .then((res) => res.json())
-        .then((corJson) => {
-          setCorpokemon(corJson);
+  const buscarPokemon = async () => {
+    if (searchValue != "") {
+      try {
+        const response = await fetch(
+          `https://pokeapi.co/api/v2/pokemon/${searchValue.toLowerCase()}`
+        );
+        const responseCor = await fetch(
+          `https://pokeapi.co/api/v2/pokemon-species/${searchValue.toLowerCase()}`
+        );
+        const data = await response.json();
+        const dataCor = await responseCor.json();
+        setPokemon({
+          name: data.name,
+          image: data.sprites.other["official-artwork"].front_default,
+          type: data.types
+            .map((t) => primeiraMaiuscula(t.type.name))
+            .join(" / "),
+          color: dataCor.color.name,
         });
+      } catch (error) {
+        alert("Pokemon não encontrado");
+      }
     } else {
       setPokemon(false);
     }
@@ -51,10 +87,8 @@ const App = () => {
         />
         <Filtro />
       </section>
-      {pokemon && corPokemon && (
-        <Pokemon pokemon={pokemon} corPokemon={corPokemon} />
-      )}
-      {!pokemon && homePokemon && <HomePokemons homePokemon={homePokemon} />}
+      {pokemon && <Pokemon pokemon={pokemon} />}
+      {!pokemon && <HomePokemon homePokemon={homePokemon} />}
     </div>
   );
 };
