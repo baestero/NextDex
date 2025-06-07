@@ -12,6 +12,8 @@ const App = () => {
   const [pokemon, setPokemon] = React.useState(null);
   const [searchValue, setSearchValue] = React.useState("");
   const [homePokemon, setHomePokemon] = React.useState("");
+  const [animaBuscaAtivo, setAnimaBuscaAtivo] = React.useState(false);
+  const [animaHomeAtivo, setAnimaHomeAtivo] = React.useState(false);
 
   React.useEffect(() => {
     (async () => {
@@ -44,6 +46,14 @@ const App = () => {
     })();
   }, []);
 
+  React.useEffect(() => {
+    if (homePokemon && homePokemon.length > 0) {
+      setTimeout(() => {
+        setAnimaHomeAtivo(true);
+      }, 100);
+    }
+  }, [homePokemon]);
+
   function primeiraMaiuscula(texto) {
     return texto.charAt(0).toUpperCase() + texto.slice(1);
   }
@@ -51,6 +61,7 @@ const App = () => {
   const buscarPokemon = async () => {
     if (searchValue != "") {
       try {
+        setAnimaBuscaAtivo(false);
         const response = await fetch(
           `https://pokeapi.co/api/v2/pokemon/${searchValue.toLowerCase()}`
         );
@@ -67,11 +78,20 @@ const App = () => {
             .join(" / "),
           color: dataCor.color.name,
         });
+        setTimeout(() => {
+          setAnimaBuscaAtivo(true);
+        }, 50);
+        setAnimaHomeAtivo(false);
       } catch (error) {
         alert("Pokemon não encontrado");
       }
     } else {
-      setPokemon(false);
+      setPokemon(null);
+      setAnimaBuscaAtivo(false);
+      setAnimaHomeAtivo(false);
+      setTimeout(() => {
+        setAnimaHomeAtivo(true);
+      }, 50);
     }
   };
 
@@ -87,8 +107,10 @@ const App = () => {
         />
         <Filtro />
       </section>
-      {pokemon && <Pokemon pokemon={pokemon} />}
-      {!pokemon && <HomePokemon homePokemon={homePokemon} />}
+      {pokemon && <Pokemon pokemon={pokemon} animacao={animaBuscaAtivo} />}
+      {!pokemon && (
+        <HomePokemon homePokemon={homePokemon} animacao={animaHomeAtivo} />
+      )}
     </div>
   );
 };

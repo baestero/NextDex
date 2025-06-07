@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Pokemon.module.css";
 
-const Pokemon = ({ pokemon }) => {
+const Pokemon = ({ pokemon, animacao }) => {
   const pokemonColors = {
     black: "#E9E9E9",
     blue: "#D6E2FC",
@@ -20,8 +20,10 @@ const Pokemon = ({ pokemon }) => {
   return (
     <>
       <p className={styles.pBusca}>Resultados da busca</p>
-      <div className={styles.pokemonContainer}>
-        <div style={{ backgroundColor }} className={styles.pokemonCard}>
+      <div
+        className={`${styles.pokemonContainer} ${animacao ? styles.ativo : ""}`}
+      >
+        <div style={{ backgroundColor }} className={`${styles.pokemonCard} `}>
           <img src={pokemon.image} alt={pokemon.name} />
           <h3>{pokemon.name}</h3>
           <p>{pokemon.type}</p>

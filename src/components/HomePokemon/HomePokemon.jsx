@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./HomePokemon.module.css";
 
-const HomePokemon = ({ homePokemon }) => {
+const HomePokemon = ({ homePokemon, animacao }) => {
   const pokemonColors = {
     black: "#E9E9E9",
     blue: "#D6E2FC",
@@ -17,7 +17,9 @@ const HomePokemon = ({ homePokemon }) => {
 
   return (
     <>
-      <div className={styles.pokemonContainer}>
+      <div
+        className={`${styles.pokemonContainer} ${animacao ? styles.ativo : ""}`}
+      >
         {homePokemon &&
           homePokemon.map((pokemon) => {
             const backgroundColor = pokemonColors[pokemon.color] || "#FFF";
