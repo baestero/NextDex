@@ -84,7 +84,6 @@ const App = () => {
     } else {
       setPokemon(null);
       setanimaBusca(false);
-      setanimaHome(false);
       setTimeout(() => {
         setanimaHome(true);
       }, 50);
