@@ -12,8 +12,8 @@ const App = () => {
   const [pokemon, setPokemon] = React.useState(null);
   const [searchValue, setSearchValue] = React.useState("");
   const [homePokemon, setHomePokemon] = React.useState("");
-  const [animaBuscaAtivo, setAnimaBuscaAtivo] = React.useState(false);
-  const [animaHomeAtivo, setAnimaHomeAtivo] = React.useState(false);
+  const [animaBusca, setanimaBusca] = React.useState(false);
+  const [animaHome, setanimaHome] = React.useState(false);
 
   React.useEffect(() => {
     (async () => {
@@ -49,19 +49,15 @@ const App = () => {
   React.useEffect(() => {
     if (homePokemon && homePokemon.length > 0) {
       setTimeout(() => {
-        setAnimaHomeAtivo(true);
+        setanimaHome(true);
       }, 100);
     }
   }, [homePokemon]);
 
-  function primeiraMaiuscula(texto) {
-    return texto.charAt(0).toUpperCase() + texto.slice(1);
-  }
-
   const buscarPokemon = async () => {
     if (searchValue != "") {
       try {
-        setAnimaBuscaAtivo(false);
+        setanimaBusca(false);
         const response = await fetch(
           `https://pokeapi.co/api/v2/pokemon/${searchValue.toLowerCase()}`
         );
@@ -79,21 +75,25 @@ const App = () => {
           color: dataCor.color.name,
         });
         setTimeout(() => {
-          setAnimaBuscaAtivo(true);
+          setanimaBusca(true);
         }, 50);
-        setAnimaHomeAtivo(false);
+        setanimaHome(false);
       } catch (error) {
         alert("Pokemon não encontrado");
       }
     } else {
       setPokemon(null);
-      setAnimaBuscaAtivo(false);
-      setAnimaHomeAtivo(false);
+      setanimaBusca(false);
+      setanimaHome(false);
       setTimeout(() => {
-        setAnimaHomeAtivo(true);
+        setanimaHome(true);
       }, 50);
     }
   };
+
+  function primeiraMaiuscula(texto) {
+    return texto.charAt(0).toUpperCase() + texto.slice(1);
+  }
 
   return (
     <div className={styles.appContainer}>
@@ -107,9 +107,9 @@ const App = () => {
         />
         <Filtro />
       </section>
-      {pokemon && <Pokemon pokemon={pokemon} animacao={animaBuscaAtivo} />}
+      {pokemon && <Pokemon pokemon={pokemon} animacao={animaBusca} />}
       {!pokemon && (
-        <HomePokemon homePokemon={homePokemon} animacao={animaHomeAtivo} />
+        <HomePokemon homePokemon={homePokemon} animacao={animaHome} />
       )}
     </div>
   );
