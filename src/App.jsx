@@ -7,6 +7,7 @@ import Pokemon from "./components/Pokemon/Pokemon";
 import Filtro from "./components/Filtro/Filtro";
 import Input from "./components/Input/Input";
 import HomePokemon from "./components/HomePokemon/HomePokemon";
+import FiltroModal from "./components/FiltroModal/FiltroModal";
 
 const App = () => {
   const [pokemon, setPokemon] = React.useState(null);
@@ -14,6 +15,8 @@ const App = () => {
   const [homePokemon, setHomePokemon] = React.useState("");
   const [animaBusca, setanimaBusca] = React.useState(false);
   const [animaHome, setanimaHome] = React.useState(false);
+  const [filterModal, setfilterModal] = React.useState(false);
+  const [type, setType] = React.useState("");
 
   React.useEffect(() => {
     (async () => {
@@ -95,6 +98,27 @@ const App = () => {
     return texto.charAt(0).toUpperCase() + texto.slice(1);
   }
 
+  function openModal() {
+    setfilterModal(!filterModal);
+    setType("");
+
+    if (filterModal === true) {
+      setanimaHome(false);
+      setTimeout(() => {
+        setanimaHome(true);
+      }, 50);
+    }
+  }
+
+  const filterType = (event) => {
+    setType(event.target.innerText);
+
+    setanimaHome(false);
+    setTimeout(() => {
+      setanimaHome(true);
+    }, 50);
+  };
+
   return (
     <div className={styles.appContainer}>
       <Header />
@@ -105,11 +129,18 @@ const App = () => {
           setSearchValue={setSearchValue}
           buscar={buscarPokemon}
         />
-        <Filtro />
+        <Filtro openModal={openModal} filterModal={filterModal} />
       </section>
+      <FiltroModal filterModal={filterModal} filterType={filterType} />
+
       {pokemon && <Pokemon pokemon={pokemon} animacao={animaBusca} />}
+
       {!pokemon && (
-        <HomePokemon homePokemon={homePokemon} animacao={animaHome} />
+        <HomePokemon
+          homePokemon={homePokemon}
+          animacao={animaHome}
+          type={type}
+        />
       )}
     </div>
   );

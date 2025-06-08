@@ -1,11 +1,18 @@
 import React from "react";
 import styles from "./Filtro.module.css";
 
-const Filtro = () => {
+const Filtro = ({ openModal, filterModal }) => {
   return (
-    <div className={styles.filterContainer}>
-      <img src="/icons/filter.svg" alt="" />
-    </div>
+    <>
+      <div
+        onClick={openModal}
+        className={`${styles.filterContainer} ${
+          filterModal ? styles.ativo : ""
+        }`}
+      >
+        <img src="/icons/filter.svg" alt="" />
+      </div>
+    </>
   );
 };
 

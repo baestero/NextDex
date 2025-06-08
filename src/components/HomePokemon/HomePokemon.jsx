@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./HomePokemon.module.css";
 
-const HomePokemon = ({ homePokemon, animacao }) => {
+const HomePokemon = ({ homePokemon, animacao, type }) => {
   const pokemonColors = {
     black: "#E9E9E9",
     blue: "#D6E2FC",
@@ -21,20 +21,22 @@ const HomePokemon = ({ homePokemon, animacao }) => {
         className={`${styles.pokemonContainer} ${animacao ? styles.ativo : ""}`}
       >
         {homePokemon &&
-          homePokemon.map((pokemon) => {
-            const backgroundColor = pokemonColors[pokemon.color] || "#FFF";
-            return (
-              <div
-                style={{ backgroundColor }}
-                key={pokemon.name}
-                className={styles.pokemonCard}
-              >
-                <img src={pokemon.image} alt="" />
-                <h3>{pokemon.name}</h3>
-                <p>{pokemon.type}</p>
-              </div>
-            );
-          })}
+          homePokemon
+            .filter((pokemon) => pokemon.type.includes(type))
+            .map((pokemon) => {
+              const backgroundColor = pokemonColors[pokemon.color] || "#FFF";
+              return (
+                <div
+                  style={{ backgroundColor }}
+                  key={pokemon.name}
+                  className={styles.pokemonCard}
+                >
+                  <img src={pokemon.image} alt="" />
+                  <h3>{pokemon.name}</h3>
+                  <p>{pokemon.type}</p>
+                </div>
+              );
+            })}
       </div>
     </>
   );

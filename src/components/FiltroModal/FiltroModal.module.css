@@ -1,0 +1,50 @@
+.modal {
+  position: absolute;
+  top: 145px;
+  left: 30px;
+  opacity: 0;
+  z-index: 999999999;
+  pointer-events: none;
+  transform: translate3d(30px, 0, 0);
+  transition: opacity 0.4s ease, transform 1s ease;
+  display: flex;
+  align-self: center;
+  width: 238px;
+  height: 44px;
+  border-radius: 8px;
+  background: #5e5f7d;
+}
+
+.modal.ativo {
+  top: 134px;
+  left: 30px;
+  height: 85px;
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+.buttonContainer {
+  opacity: 0;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.buttonContainer.ativo {
+  opacity: 1;
+  display: flex;
+}
+
+.buttonContainer button {
+  width: 60px;
+  height: 25px;
+  border: none;
+  border-radius: 4.2px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.75rem;
+  background: #b2b4d9;
+  cursor: pointer;
+}

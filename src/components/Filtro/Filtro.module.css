@@ -2,4 +2,15 @@
   width: 45px;
   margin-left: 10px;
   cursor: pointer;
+  z-index: 5000;
+}
+
+.filterContainer.ativo {
+  position: absolute;
+  top: 134px;
+  left: 250px;
+  background: #5e5f7d;
+  height: 85px;
+  border-radius: 8px;
+  z-index: 999999999;
 }
