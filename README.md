@@ -11,7 +11,7 @@
 
 Adicionei abaixo um preview do projeto para visualização rápida:
 
-![Preview do Projeto](https://github.com/baestero/CalcImc/blob/main/calcImc.png)
+![Preview do Projeto](https://github.com/baestero/Nextdex/blob/public/preview/Nextdex.png)
 
 ## 🚀 Tecnologias Utilizadas
 
