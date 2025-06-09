@@ -11,7 +11,7 @@
 
 Adicionei abaixo um preview do projeto para visualização rápida:
 
-![Preview do Projeto](https://github.com/baestero/Nextdex/raw/public/preview/Nextdex.png))
+![Preview do Projeto](https://github.com/baestero/Nextdex/raw/main/public/preview/Nextdex.png)
 
 ## 🚀 Tecnologias Utilizadas
 
@@ -39,4 +39,26 @@ O layout foi pensado primeiro para dispositivos móveis, garantindo uma experiê
 
 ```bash
 git clone https://github.com/seu-usuario/nextdex.git
+```
+
+Perfeito! Com essa imagem de preview, aqui está seu `README.md` completo e atualizado com a visualização incluída:
+
+---
+
+2. Instale as dependências:
+
+```bash
+npm install
+```
+
+3. Inicie o servidor de desenvolvimento:
+
+```bash
+npm run dev
+```
+
+```
+
+
+
 ```
