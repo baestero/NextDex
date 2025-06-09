@@ -1,3 +1,42 @@
 # NextDex
-Projeto React consumindo a PokeAPI
-Deploy: [nextdex-six.vercel.app](https://nextdex-six.vercel.app/)
+
+**NextDex** é um projeto pessoal desenvolvido para praticar habilidades em **React**, **CSS puro** e consumo de APIs. A aplicação foi criada com uma abordagem **mobile first** e consome dados da [PokeAPI](https://pokeapi.co) para exibir informações sobre os Pokémon.
+
+## 🔗 Acesse o Projeto
+
+**Visite o meu projeto:**
+[https://nextdex-six.vercel.app/](https://nextdex-six.vercel.app/)
+
+## 🖼 Preview
+
+Adicionei abaixo um preview do projeto para visualização rápida:
+
+![Preview do Projeto](https://github.com/baestero/CalcImc/blob/main/calcImc.png)
+
+## 🚀 Tecnologias Utilizadas
+
+- **React**
+- **Vite**
+- **JavaScript (ES6+)**
+- **CSS puro**
+- **PokeAPI**
+- **Vercel** (para deploy)
+
+## ⚙️ Funcionalidades
+
+- ✅ Tela inicial responsiva com animação
+- ✅ Pesquisa de Pokémon por **nome** ou **ID**
+- ✅ Filtro animado de categorias na tela inicial
+- ✅ Layout otimizado para dispositivos móveis
+
+## 📲 Mobile First
+
+O layout foi pensado primeiro para dispositivos móveis, garantindo uma experiência acessível diretamente na palma da mão.
+
+## 📦 Como Rodar o Projeto
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/seu-usuario/nextdex.git
+```
