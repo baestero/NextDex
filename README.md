@@ -13,6 +13,10 @@ Adicionei abaixo um preview do projeto para visualização rápida:
 
 ![Preview do Projeto](https://github.com/baestero/Nextdex/raw/main/public/preview/Nextdex.png)
 
+## Requisitos e Critérios de Aceite
+
+Para entender as funcionalidades e os critérios de validação da NextDex, consulte o documento de [Requisitos e Critérios de Aceite](REQUIREMENTS.md).
+
 ## 🚀 Tecnologias Utilizadas
 
 - **React**
