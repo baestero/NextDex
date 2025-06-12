@@ -4,7 +4,7 @@
 
 - **Nome da Aplicação:** NextDex
 
-- **Propósito:** Um aplicativo web interativo que exibe os 10 primeiros Pokémon da primeira geração, permitindo filtros por tipo e pesquisa por nome ou ID, com foco total na experiência mobile.
+- **Propósito:** Um aplicativo web interativo que exibe os 20 primeiros Pokémon da primeira geração, permitindo filtros por tipo e pesquisa por nome ou ID, com foco total na experiência mobile.
 
 - **Tecnologias Utilizadas:**
   - **Frontend:** React com Vite
@@ -30,7 +30,7 @@ Para cada funcionalidade, detalharemos o que ela faz e como verificar se está f
 
 - **RF 3.1.1: Exibição Inicial de Pokémon**
 
-  - **Descrição:** Ao carregar a página inicial, a NextDex deve exibir os 10 primeiros Pokémon da primeira geração, obtidos da PokeAPI.
+  - **Descrição:** Ao carregar a página inicial, a NextDex deve exibir os 20 primeiros Pokémon da primeira geração, obtidos da PokeAPI.
 
   - **Critérios de Aceite:**
 
@@ -38,13 +38,8 @@ Para cada funcionalidade, detalharemos o que ela faz e como verificar se está f
 
       - **Dado** que o usuário acessa a URL da NextDex (/)
       - **Quando** a página é carregada com sucesso
-      - **Então** são exibidos 10 cards de Pokémon, cada um com nome, ID e imagem.
-      - **E** os Pokémon exibidos correspondem aos IDs de 1 a 10 (Bulbasaur a Caterpie).
-
-    - **Cenário:** Indicador de Carregamento
-      - **Dado** que o usuário acessa a página inicial
-      - **Quando** os dados dos Pokémon estão sendo carregados da PokeAPI
-      - **Então** um indicador visual de carregamento (ex: spinner) é exibido na tela.
+      - **Então** são exibidos 20 cards de Pokémon, cada um com nome, ID e imagem.
+      - **E** os Pokémon exibidos correspondem aos IDs de 1 a 20 (Bulbasaur a Raticate).
 
 #### 3.2. Módulo: Filtro por Tipo
 
@@ -60,7 +55,6 @@ Para cada funcionalidade, detalharemos o que ela faz e como verificar se está f
       - **E** o usuário clica no filtro "Grass" (ou outro tipo disponível)
       - **Quando** o filtro é aplicado
       - **Então** a lista de Pokémon é atualizada para exibir apenas Pokémon do tipo "Grass" (ex: Bulbasaur, Ivysaur, Venusaur).
-      - **E** o tipo selecionado é visualmente destacado (ex: botão do filtro com outra cor/borda).
 
     - **Cenário:** Remoção de filtro
 
@@ -104,13 +98,13 @@ Para cada funcionalidade, detalharemos o que ela faz e como verificar se está f
       - **Dado** que o usuário está na página inicial
       - **E** o campo de pesquisa está vazio
       - **Quando** ele pressiona Enter ou clica no botão de pesquisa
-      - **Então** a lista de Pokémon volta a exibir os 10 primeiros da primeira geração.
+      - **Então** a lista de Pokémon volta a exibir os 20 primeiros da primeira geração.
 
 ---
 
 ### 4. Requisitos Não Funcionais (RNFs)
 
-Estes requisitos descrevem as qualidades e restrições da sua NextDex.
+Estes requisitos descrevem as qualidades e restrições da NextDex.
 
 - **RNF 4.1: Responsividade e Foco Mobile**
 
@@ -130,7 +124,7 @@ Estes requisitos descrevem as qualidades e restrições da sua NextDex.
 
   - **Descrição:** A NextDex deve ser rápida no carregamento e na exibição de dados.
   - **Critérios de Aceite:**
-    - A página inicial deve carregar (exibir os 10 Pokémon) em menos de 3 segundos em uma conexão de internet padrão.
+    - A página inicial deve carregar (exibir os 20 Pokémon) em menos de 3 segundos em uma conexão de internet padrão.
     - As operações de filtro e pesquisa devem atualizar a lista em menos de 1 segundo.
 
 - **RNF 4.3: Usabilidade**
@@ -154,12 +148,22 @@ Estes requisitos descrevem as qualidades e restrições da sua NextDex.
 ### 5. Considerações Futuras
 
 - **Ideias para Melhorias:**
+
   - Adicionar um botão "Ver Detalhes" em cada card para uma página de detalhes do Pokémon (com estatísticas, habilidades, etc.).
-  - Implementar paginação para além dos 10 primeiros Pokémon da geração inicial.
+
+  - Implementar paginação para além dos 20 primeiros Pokémon da geração inicial.
+
   - Expandir para outras gerações de Pokémon.
+
   - Adicionar uma funcionalidade de "Favoritos" que utilize o `localStorage` do navegador para persistir a lista de Pokémon favoritos do usuário.
+
+  - Indicador de Carregamento
+    dado que o usuário acessa a página inicial
+    os dados dos Pokémon estão sendo carregados da PokeAPI
+    um indicador visual de carregamento (ex: spinner) é exibido na tela.
+
+  - O tipo selecionado é visualmente destacado (ex: botão do filtro com outra cor/borda).
+
 - **Pontos de Refatoração:**
   - Otimizar o carregamento de imagens para mobile (ex: lazy loading).
   - Melhorar a estrutura de gerenciamento de estado da aplicação para escalabilidade.
-
----
