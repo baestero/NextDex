@@ -1,4 +1,4 @@
-describe("Exibição Inicial de Pokémon (Home)", () => {
+describe("RF 3.1: Módulo Exibição Inicial de Pokémon (Home)", () => {
   beforeEach(() => {
     cy.visit("/");
   });

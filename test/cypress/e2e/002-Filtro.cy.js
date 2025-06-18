@@ -1,4 +1,4 @@
-describe("Seleção de Tipo de Pokémon", () => {
+describe("RF 3.2 Módulo Seleção de Tipo de Pokémon", () => {
   beforeEach(() => {
     cy.visit("/");
   });
