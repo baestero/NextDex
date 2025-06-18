@@ -34,8 +34,6 @@ Para entender as funcionalidades e os critérios de validação da NextDex, cons
 - ✅ Filtro animado de categorias na tela inicial
 - ✅ Layout otimizado para dispositivos móveis
 
-Claro! Vou incluir na seção a parte do módulo de filtro por tipo de Pokémon também, explicando que ele está testado junto com os demais módulos. Veja a versão atualizada para o seu README:
-
 ---
 
 ## 🧪 Testes Automatizados E2E (Cypress)
